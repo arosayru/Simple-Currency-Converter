@@ -46,7 +46,7 @@ const CurrencyConverter = () => {
   return (
     <div className="converter-container">
       <Typography variant="h4" className="title">
-        Currency Converter
+        
       </Typography>
 
       <TextField
