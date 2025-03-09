@@ -1,78 +1,39 @@
-/* 🌍 Background Styling */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
+.app-container {
   background: linear-gradient(to bottom, #0082c8, #00a1ff);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* 📦 Converter Box */
 .converter-container {
   background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 🔘 Convert Button */
+.text-field {
+  margin-bottom: 25px;
+}
+
+
 .convert-button {
-  margin-top: 15px;
+  margin-top: 10px;
   background-color: #007bff;
   color: white;
-  padding: 12px;
-  width: 100%;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
 }
 
-.convert-button:hover {
-  background-color: #0056b3;
-}
-
-/* ✅ Result Text */
 .result {
   margin-top: 10px;
   font-weight: bold;
-  font-size: 18px;
 }
 
-/* 🗑️ History Section */
 .history {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #444;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 5px;
 }
 
-/* ❌ Revoke Link */
 .revoke {
   color: red;
-  font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.revoke:hover {
-  color: darkred;
-}
-
-/* 📱 Responsive Design */
-@media (max-width: 500px) {
-  .converter-container {
-    width: 100%;
-    padding: 20px;
-  }
 }

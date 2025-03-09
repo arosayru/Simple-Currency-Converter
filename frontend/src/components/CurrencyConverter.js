@@ -17,10 +17,19 @@ const CurrencyConverter = () => {
   const [convertedAmount, setConvertedAmount] = useState(null);
   const [transfers, setTransfers] = useState([]);
 
+  const formatNumber = (num) => {
+    return parseFloat(num).toFixed(2); // Limits to 2 decimal places
+  };
+
   const handleConvert = async () => {
+    if (!amount || isNaN(amount) || amount <= 0) {
+      alert("Please enter a valid amount.");
+      return;
+    }
+
     const data = { fromCountry: fromCurrency, toCountry: toCurrency, amount };
     const result = await convertCurrency(data);
-    setConvertedAmount(result.convertedAmount);
+    setConvertedAmount(formatNumber(result.convertedAmount));
     loadTransfers();
   };
 
@@ -35,7 +44,11 @@ const CurrencyConverter = () => {
   };
 
   return (
-    <div className="converter">
+    <div className="converter-container">
+      <Typography variant="h4" className="title">
+        Currency Converter
+      </Typography>
+
       <TextField
         select
         label="From Currency"
@@ -75,7 +88,12 @@ const CurrencyConverter = () => {
         style={{ marginBottom: "15px" }}
       />
 
-      <Button variant="contained" color="primary" onClick={handleConvert} className="convert-button">
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleConvert}
+        className="convert-button"
+      >
         Convert
       </Button>
 
@@ -87,7 +105,8 @@ const CurrencyConverter = () => {
 
       {transfers.map((t) => (
         <Typography key={t._id} className="history">
-          {t.amount} {t.fromCountry} → {t.convertedAmount} {t.toCountry}{" "}
+          {t.amount} {t.fromCountry} → {formatNumber(t.convertedAmount)}{" "}
+          {t.toCountry}{" "}
           <span className="revoke" onClick={() => handleDelete(t._id)}>
             REVOKE
           </span>
