@@ -13,32 +13,40 @@ const ExchangeRateChart = () => {
         label: "Exchange Rate (USD to LKR)",
         data: [],
         borderColor: "green",
-        fill: false,
+        backgroundColor: "rgba(0, 255, 0, 0.2)",
+        fill: true,
       }
     ]
   });
 
   useEffect(() => {
     const fetchRates = async () => {
-      const response = await axios.get("https://v6.exchangerate-api.com/v6/YOUR_API_KEY_HERE/latest/USD");
-      const rates = response.data.conversion_rates;
-      setChartData({
-        labels: Object.keys(rates).slice(0, 10),
-        datasets: [
-          {
-            label: "Exchange Rate (USD to LKR)",
-            data: Object.values(rates).slice(0, 10),
-            borderColor: "green",
-            fill: false,
-          }
-        ]
-      });
+      try {
+        const response = await axios.get("https://v6.exchangerate-api.com/v6/72427cd09834ad58b23cd29d/latest/USD");
+        const rates = response.data.conversion_rates;
+        const currentTime = new Date().toLocaleTimeString(); 
+
+        setChartData((prevData) => ({
+          labels: [...prevData.labels.slice(-9), currentTime], 
+          datasets: [
+            {
+              ...prevData.datasets[0],
+              data: [...prevData.datasets[0].data.slice(-9), rates["LKR"]], 
+            }
+          ]
+        }));
+      } catch (error) {
+        console.error("Error fetching exchange rates:", error);
+      }
     };
 
-    fetchRates();
+    fetchRates(); 
+    const interval = setInterval(fetchRates, 30000); 
+
+    return () => clearInterval(interval); 
   }, []);
 
-  return <Line data={chartData} />;
+  return <Line data={chartData} options={{ responsive: true, maintainAspectRatio: false }} />;
 };
 
 export default ExchangeRateChart;

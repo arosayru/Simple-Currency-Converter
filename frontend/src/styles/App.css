@@ -1,0 +1,39 @@
+.app-container {
+  background: linear-gradient(to bottom, #0082c8, #00a1ff);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.converter-container {
+  background: #a1db8b;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.chart-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.convert-button {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+}
+
+.result {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.history {
+  margin-top: 5px;
+}
+
+.revoke {
+  color: red;
+  cursor: pointer;
+}
