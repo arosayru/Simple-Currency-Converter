@@ -11,7 +11,7 @@ const App = () => {
           {/* Currency Converter Component */}
           <Grid item xs={12} md={6}>
             <Paper className="converter-container" elevation={3}>
-              <Typography variant="h4" className="title">
+              <Typography variant="h4" className="title" style={{ marginBottom: "10px" }}>
                 Currency Converter
               </Typography>
               <CurrencyConverter />

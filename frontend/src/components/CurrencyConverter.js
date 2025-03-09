@@ -42,7 +42,7 @@ const CurrencyConverter = () => {
         value={fromCurrency}
         onChange={(e) => setFromCurrency(e.target.value)}
         fullWidth
-        className="text-field"
+        style={{ marginBottom: "15px" }}
       >
         {countries.map((c) => (
           <MenuItem key={c.code} value={c.code}>
@@ -57,7 +57,7 @@ const CurrencyConverter = () => {
         value={toCurrency}
         onChange={(e) => setToCurrency(e.target.value)}
         fullWidth
-        className="text-field"
+        style={{ marginBottom: "15px" }}
       >
         {countries.map((c) => (
           <MenuItem key={c.code} value={c.code}>
@@ -72,7 +72,7 @@ const CurrencyConverter = () => {
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
         fullWidth
-        className="text-field"
+        style={{ marginBottom: "15px" }}
       />
 
       <Button variant="contained" color="primary" onClick={handleConvert} className="convert-button">
