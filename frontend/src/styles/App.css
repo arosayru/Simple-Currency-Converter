@@ -7,16 +7,16 @@
 }
 
 .converter-container {
-  background: #a1db8b;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.chart-container {
   background: white;
   padding: 20px;
   border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+.text-field {
+  margin-bottom: 25px;
+}
+
 
 .convert-button {
   margin-top: 10px;
